@@ -11,8 +11,8 @@ import time
 import pandas as pd
 import os
 
-start_index = 10
-end_index = 20
+start_index = 1200
+end_index = 1300
 filename = "2014_2023_ForeignMovie"
 data = pd.read_csv(f"{filename}.csv")
 data = data[start_index:end_index]
@@ -60,7 +60,7 @@ driver.get("https://www.kobis.or.kr/kobis/business/mast/mvie/searchMovieList.do"
 summary_list = []
 genre_list = []
 for i in range(start_index, end_index):
-    if i % 50 == 0:
+    if i % 10 == 0:
         print(f'extract {i}-th movie summary')
     driver.refresh()
     name = wait.until(ec.visibility_of_element_located((By.XPATH, ".//div[@class='item']/div/input")))
@@ -71,7 +71,7 @@ for i in range(start_index, end_index):
         start_date = wait.until(ec.visibility_of_element_located((By.ID, "cal_start")))
         start_date.send_keys(data['개봉일'][i])
         start_date.send_keys(Keys.ENTER)
-        
+    
     button = wait.until(ec.visibility_of_element_located((By.XPATH, ".//button[@class='btn_blue']")))
     ActionChains(driver).move_to_element(button)
     button.click()
@@ -84,10 +84,10 @@ for i in range(start_index, end_index):
     except:
         genre_list.append("None")
     
-    info_button = wait.until(ec.visibility_of_element_located((By.XPATH, ".//span[@class='ellip']/a")))
-    info_button.click()
-        
     try:
+        info_button = wait.until(ec.visibility_of_element_located((By.XPATH, ".//span[@class='ellip']/a")))
+        info_button.click()
+        
         summary = wait.until(ec.visibility_of_element_located((By.XPATH, ".//p[@class='desc_info']"))).text
         summary_list.append(summary)
     except:
