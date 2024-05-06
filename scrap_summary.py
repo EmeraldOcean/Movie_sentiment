@@ -11,8 +11,8 @@ import time
 import pandas as pd
 import os
 
-start_index = 1200
-end_index = 1300
+start_index = 7000
+end_index = 8000
 filename = "2014_2023_ForeignMovie"
 data = pd.read_csv(f"{filename}.csv")
 data = data[start_index:end_index]
