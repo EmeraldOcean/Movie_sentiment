@@ -57,6 +57,7 @@ driver.get("https://www.kobis.or.kr/kobis/business/mast/mvie/searchMovieList.do"
 # data['포스터URL'] = url_list
 # data.to_csv("2014_2023_ForeignMovie(2).csv", index=False, encoding='utf-8-sig')
 
+# scrap summary & genre
 summary_list = []
 genre_list = []
 for i in range(start_index, end_index):

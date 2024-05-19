@@ -5,7 +5,7 @@ import os
 korea_movie = pd.DataFrame()
 foreign_movie = pd.DataFrame()
 
-for n in os.listdir("./raw_data"):
+for n in os.listdir("./raw_data"):   # directory of raw datas
     path = f"./raw_data/{n}"
     temp = pd.read_csv(path)
     if "Korea" in n:
