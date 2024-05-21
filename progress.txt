@@ -1,0 +1,4 @@
+1. raw_data_merge
+2. scrap_summary
+3. summary_preprocess
+4. extract_nouns
